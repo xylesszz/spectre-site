@@ -7,12 +7,13 @@
  */
 
 export class AntiPhishing {
-  private static readonly OFFICIAL_DOMAINS = [
-    'spectre.app',
-    'spectre.gg',
-    'localhost',
-    '127.0.0.1'
-  ];
+private static readonly OFFICIAL_DOMAINS = [
+  'vercel.app',  // Permite qualquer subdomínio da Vercel
+  'spectre.app',
+  'spectre.gg',
+  'localhost',
+  '127.0.0.1'
+];
 
   /**
    * Initialize all anti-phishing protections
