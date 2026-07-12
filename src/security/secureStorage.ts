@@ -88,7 +88,7 @@ export class SecureStorage {
    */
   static validate(): boolean {
     try {
-      const testKey = STORAGE_PREFIX + '__validation__';
+      // ✅ Corrigido: removida variável não usada
       const testValue = { ts: Date.now() };
       this.set('__validation__', testValue);
       const retrieved = this.get('__validation__', null);

@@ -76,7 +76,6 @@ export class AntiPhishing {
 
     if (!isOfficial && hostname !== 'localhost') {
       console.error('[SPECTRE Security] Running on unofficial domain:', hostname);
-      // Optionally show warning banner
       this.showDomainWarning(hostname);
     }
   }
@@ -116,7 +115,10 @@ export class AntiPhishing {
     if (window.top !== window.self) {
       document.body.style.display = 'none';
       try {
-        window.top.location.href = window.self.location.href;
+        // ✅ Corrigido: verificação de null
+        if (window.top) {
+          window.top.location.href = window.self.location.href;
+        }
       } catch {
         document.body.innerHTML = '<h1>This site cannot be embedded.</h1>';
       }

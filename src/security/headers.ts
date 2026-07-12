@@ -53,7 +53,8 @@ export class HeadersManager {
   private preventFraming(): void {
     if (window.top !== window.self) {
       try {
-        if (window.top.location.hostname !== window.self.location.hostname) {
+        // ✅ Corrigido: verificação de null
+        if (window.top && window.top.location.hostname !== window.self.location.hostname) {
           window.top.location.href = window.self.location.href;
         }
       } catch {
